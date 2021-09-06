@@ -22,6 +22,7 @@ rule("utils.merge.archive")
     set_extensions(".a", ".lib")
     on_build_files("merge_archive")
     after_link(function (target, opt)
+        --[[
         if target:policy("build.merge_archive") and target:is_static() then
             import("utils.archive.merge_staticlib")
             import("core.project.depend")
@@ -44,6 +45,6 @@ rule("utils.merge.archive")
                     os.rm(tmpfile)
                 end
             end, {dependfile = target:dependfile(target:targetfile() .. ".merge_archive"), files = libraryfiles})
-        end
+        end]]
     end)
 

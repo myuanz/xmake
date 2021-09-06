@@ -2,5 +2,5 @@
 function main(t)
 
     -- build project
-    t:build()
+--    t:build()
 end
